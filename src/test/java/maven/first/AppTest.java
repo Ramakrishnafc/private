@@ -17,6 +17,10 @@ public class AppTest
 		driver = new FirefoxDriver();
 		
 		driver.get("https://github.com/SeleniumHQ/selenium/issues/3884");
+		
+		
+		System.out.println("ssssssssssssssssd sd ");
+		System.out.println("sdsds d");
 		driver.quit();
 		
 	}
