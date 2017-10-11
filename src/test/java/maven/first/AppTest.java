@@ -18,10 +18,6 @@ public class AppTest
 		
 		driver.get("https://github.com/SeleniumHQ/selenium/issues/3884");
 		
-		
-		System.out.println("ssssssssssssssssd sd ");
-		System.out.println("6666666");
-		
 		driver.quit();
 		
 	}
