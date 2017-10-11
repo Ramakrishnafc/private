@@ -21,6 +21,9 @@ public class AppTest
 		
 		System.out.println("ssssssssssssssssd sd ");
 		System.out.println("sdsds d");
+		System.out.println("s5555 ");
+		System.out.println("6666666");
+		
 		driver.quit();
 		
 	}
