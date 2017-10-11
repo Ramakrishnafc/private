@@ -15,9 +15,8 @@ public class AppTest
 		
 		System.setProperty("webdriver.firefox.marionette", "H:\\Latest jars\\geckodriver.exe");
 		driver = new FirefoxDriver();
-		syso("");
 		driver.get("https://github.com/SeleniumHQ/selenium/issues/3884");
-		
+		System.out.println("sdsd");
 		driver.quit();
 		
 	}
