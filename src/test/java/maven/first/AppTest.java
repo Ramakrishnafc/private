@@ -1,26 +1,21 @@
 package maven.first;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
+public class Apptest {
 
- 
-public class AppTest 
-{
-	@Test
-	public void logintest()
-	{
-		WebDriver driver ;
-		
-		System.setProperty("webdriver.firefox.marionette", "H:\\Latest jars\\geckodriver.exe");
-		driver = new FirefoxDriver();
-		driver.get("https://github.com/SeleniumHQ/selenium/issues/3884");
-		System.out.println("sdsd");
-		driver.quit();
-		
-	}
 	
-
+	WebDriver driver;
+	 @Test
+    public void seond()
+    {
+   	 System.setProperty("webdriver.chrome.driver", "C:\\Users\\Ramakrishna-PC\\Downloads\\chromedriver_win32\\chromedriver.exe");
+   	 
+   	 driver = new ChromeDriver();
+   	 driver.get("https://www.guru99.com/using-apache-ant-with-selenium.html");
+   	 driver.quit();
+    }
 
 }

@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 
 <!--Project tag used to mention the project name, and basedir attribute will be the root directory of the application-->
-			<project name="YTMonetize" basedir=".">
+			<project name="first"  basedir=".">
                   <!--Property tags will be used as variables in build.xml file to use in further steps-->
-				<property name="build.dir" value="${basedir}/build"/>
+				<property name="build.dir" value="${basedir}\build"/>
       <!-- put  testng related jar in the resource  folder 
 	       <property name="external.jars" value=".\resource"/>-->
 <!-- put  selenium related jar in resource  folder -->
-     <property name="selenium.jars" value="C:\Users\Ramakrishna-PC\.m2\repository"/>
+            <property name="selenium.jars" value="C:\Users\Ramakrishna-PC\.m2\repository"/>
+				
 			<property name="src.dir" value="${basedir}/src"/>
 				<!--Target tags used as steps that will execute in  sequential order. name attribute will be the name 
 of the target and 'depends' attribute used to make one target to depend on another target-->
       <!-- Load testNG and add to the class path of application -->
+				
+				<presetdef name="javac">
+				   <javac includeantruntime="false" />
+				 </presetdef>		
        <target name="loadTestNG" depends="setClassPath">
-				<taskdef resource="testngtasks" classpath="${test.classpath}"/>
+				<taskdef resource="testngtasks" classpath="C:\Users\Ramakrishna-PC\.m2\repository\org\testng\testng\6.8\testng-6.8.jar"/>
 		</target>
 <target name="setClassPath">
 	        <path id="classpath_jars">
@@ -22,7 +27,7 @@ of the target and 'depends' attribute used to make one target to depend on anoth
 			<!-- selenium jar added here -->
 	            <fileset dir="${selenium.jars}" includes="*.jar"/>
         </path>
-   <pathconvert pathsep=";" property="test.classpath" refid="classpath_jars"/>
+   <pathconvert pathsep=";" property="selenium.jars" refid="classpath_jars"/>
 </target>
 <target name="clean">
 <!--echo tag will use to print text on console-->
@@ -31,20 +36,29 @@ of the target and 'depends' attribute used to make one target to depend on anoth
 		               <delete dir="${build.dir}"/>
 				</target>
 <target name="compile" depends="clean,setClassPath,loadTestNG">
-         <echo message="classpath:${test.classpath}"/>
+         <echo message="classpath:${selenium.jars}"/>
                 <echo message="compiling.........."/>
         <!--mkdir tag will create new director-->
 	        <mkdir dir="${build.dir}"/>
-          			<echo message="classpath:${test.classpath}"/>
+          			<echo message="classpath:${selenium.jars}"/>
 			<echo message="compiling.........."/>
 	<!--javac tag used to compile java source code and move .class files to new folder-->
-     <javac destdir="${build.dir}" srcdir="${src.dir}">
+     <javac destdir="${build.dir}" srcdir="H:\Saddahaq\first\target\test-classes\maven\first">
              <classpath refid="classpath_jars"/>
 	</javac>
 </target>
 <target name="runGuru99TestNGAnt" depends="compile">
 		<!-- testng tag will be used to execute testng code using corresponding testng.xml file -->
-			<testng classpath="${test.classpath};${build.dir}">
+	
+	 <echo message="compiling.........."/>
+	<echo message="${selenium.jars};${build.dir}"/>
+	
+	
+			<testng classpath="${selenium.jars};${build.dir}">
+				
+				
+				
+				
                <xmlfileset dir="${basedir}" includes="testng.xml"/>
 		</testng>
 	</target>
