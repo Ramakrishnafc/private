@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="52566" started-at="2017-10-12T16:53:41Z" finished-at="2017-10-12T16:54:33Z">
+    <groups>
+    </groups>
+    <test name="Test" duration-ms="52566" started-at="2017-10-12T16:53:41Z" finished-at="2017-10-12T16:54:33Z">
+      <class name="maven.first.secondtest">
+        <test-method status="PASS" signature="seond()[pri:0, instance:maven.first.secondtest@327471b5]" name="seond" duration-ms="26929" started-at="2017-10-12T22:23:41Z" finished-at="2017-10-12T22:24:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- seond -->
+      </class> <!-- maven.first.secondtest -->
+      <class name="maven.first.third">
+        <test-method status="PASS" signature="seond()[pri:0, instance:maven.first.third@17550481]" name="seond" duration-ms="25607" started-at="2017-10-12T22:24:08Z" finished-at="2017-10-12T22:24:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- seond -->
+      </class> <!-- maven.first.third -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>
