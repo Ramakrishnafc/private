@@ -13,8 +13,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   
-  
-  <!-- mvn  commands 
+   <!-- mvn  commands 
   mvn test
   mvn -Dtest=secondtest test
   
