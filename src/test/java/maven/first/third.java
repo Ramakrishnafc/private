@@ -16,6 +16,7 @@ public class third {
    	 
    	 driver = new FirefoxDriver();
    	 driver.get("https://www.guru99.com/using-apache-ant-with-selenium.html");
+   	 System.out.println(System.currentTimeMillis());
    	 driver.quit();
     }
 }

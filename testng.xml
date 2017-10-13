@@ -4,7 +4,7 @@
   <test name="Test">
   	 <classes>
   	 	<class name="maven.first.secondtest" />
-  	   
+  	    <class name= "maven.first.third"></class>
   		 </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
