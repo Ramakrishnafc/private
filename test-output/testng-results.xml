@@ -1,23 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="2" passed="2">
+<testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="58568" started-at="2017-10-12T06:19:35Z" finished-at="2017-10-12T06:20:34Z">
+  <suite name="Suite" duration-ms="17196" started-at="2017-10-12T19:35:10Z" finished-at="2017-10-12T19:35:28Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="58568" started-at="2017-10-12T06:19:35Z" finished-at="2017-10-12T06:20:34Z">
+    <test name="Test" duration-ms="17196" started-at="2017-10-12T19:35:10Z" finished-at="2017-10-12T19:35:28Z">
       <class name="maven.first.secondtest">
-        <test-method status="PASS" signature="seond()[pri:0, instance:maven.first.secondtest@880ec60]" name="seond" duration-ms="30173" started-at="2017-10-12T11:49:35Z" finished-at="2017-10-12T11:50:05Z">
+        <test-method status="PASS" signature="seond()[pri:0, instance:maven.first.secondtest@2d6e8792]" name="seond" duration-ms="17177" started-at="2017-10-13T01:05:10Z" finished-at="2017-10-13T01:05:28Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- seond -->
       </class> <!-- maven.first.secondtest -->
-      <class name="maven.first.third">
-        <test-method status="PASS" signature="seond()[pri:0, instance:maven.first.third@2812cbfa]" name="seond" duration-ms="28368" started-at="2017-10-12T11:50:05Z" finished-at="2017-10-12T11:50:34Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- seond -->
-      </class> <!-- maven.first.third -->
     </test> <!-- Test -->
   </suite> <!-- Suite -->
 </testng-results>

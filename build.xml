@@ -1,65 +1,71 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project name="TestNGTest"  basedir=".">
 
-<!--Project tag used to mention the project name, and basedir attribute will be the root directory of the application-->
-			<project name="first"  basedir=".">
-                  <!--Property tags will be used as variables in build.xml file to use in further steps-->
-				<property name="build.dir" value="${basedir}\build"/>
-      <!-- put  testng related jar in the resource  folder 
-	       <property name="external.jars" value=".\resource"/>-->
-<!-- put  selenium related jar in resource  folder -->
-            <property name="selenium.jars" value="C:\Users\Ramakrishna-PC\.m2\repository"/>
-				
-			<property name="src.dir" value="${basedir}/src"/>
-				<!--Target tags used as steps that will execute in  sequential order. name attribute will be the name 
-of the target and 'depends' attribute used to make one target to depend on another target-->
-      <!-- Load testNG and add to the class path of application -->
-				
-				<presetdef name="javac">
-				   <javac includeantruntime="false" />
-				 </presetdef>		
-       <target name="loadTestNG" depends="setClassPath">
-				<taskdef resource="testngtasks" classpath="C:\Users\Ramakrishna-PC\.m2\repository\org\testng\testng\6.8\testng-6.8.jar"/>
-		</target>
-<target name="setClassPath">
-	        <path id="classpath_jars">
-				<pathelement path="${basedir}/"/>
-					
-			<!-- selenium jar added here -->
-	            <fileset dir="${selenium.jars}" includes="*.jar"/>
-        </path>
-   <pathconvert pathsep=";" property="selenium.jars" refid="classpath_jars"/>
-</target>
-<target name="clean">
-<!--echo tag will use to print text on console-->
-               <echo message="deleting existing build directory"/>
-	                <!--delete tag will clean data from given folder-->
-		               <delete dir="${build.dir}"/>
-				</target>
-<target name="compile" depends="clean,setClassPath,loadTestNG">
-         <echo message="classpath:${selenium.jars}"/>
-                <echo message="compiling.........."/>
-        <!--mkdir tag will create new director-->
-	        <mkdir dir="${build.dir}"/>
-          			<echo message="classpath:${selenium.jars}"/>
-			<echo message="compiling.........."/>
-	<!--javac tag used to compile java source code and move .class files to new folder-->
-     <javac destdir="${build.dir}" srcdir="H:\Saddahaq\first\target\test-classes\maven\first">
-             <classpath refid="classpath_jars"/>
-	</javac>
-</target>
-<target name="runGuru99TestNGAnt" depends="compile">
-		<!-- testng tag will be used to execute testng code using corresponding testng.xml file -->
+   <!-- Define <testng> task -->
+
+	<taskdef resource="testngtasks" classpath="C:\Users\Ramakrishna-PC\.m2\repository\org\testng\testng\6.8\testng-6.8.jar"/>
+
+
+   <property name="testdir" location="${basedir}" />
+   <property name="srcdir" location="${basedir}/src" />
+   <property name="libdir" location="C:\Users\Ramakrishna-PC\.m2\repository" />
+   <property name="full-compile" value="true" />
 	
-	 <echo message="compiling.........."/>
-	<echo message="${selenium.jars};${build.dir}"/>
+    <property name="LIB" value="${basedir}/lib" />
+    <property name="BIN" value="${basedir}/bin" />
+    <path id="master-classpath">
+        <pathelement location="${BIN}" />
+        <fileset dir="${LIB}" includes="*.jar"/>
+    </path>
+
+   
+   <path id="classpath.base"/> 
+   <path id="classpath.test">
+   
+   <fileset dir="${libdir}">
+      <include name="**/*.jar" />
+   </fileset>
+   
+   <pathelement location="${testdir}" />
+   <pathelement location="${srcdir}" />
+   
+   <path refid="classpath.base" />
+   </path>
+   
+	 <path id="master-classpath">
+	        <pathelement location="${BIN}" />
+	        <fileset dir="${LIB}" includes="*.jar"/>
+	    </path>
+   <target name="clean" >
+      <delete verbose="${full-compile}">
+         <fileset dir="${testdir}" includes="**/*.class" />
+      </delete>
+   </target>
+   
+   <target name="compile" depends="clean">
+      <javac srcdir="${srcdir}" destdir="${testdir}" verbose="${full-compile}">
+         <classpath refid="classpath.test"/>
+      </javac>
+   </target>
+   
+   <target name="test" depends="compile">
+      <testng outputdir="${testdir}" classpathref="classpath.test"> 
+         <xmlfileset dir="H:\Saddahaq\first" includes="testng.xml"/> 
+      </testng>
+   </target>
 	
-	
-			<testng classpath="${selenium.jars};${build.dir}">
-				
-				
-				
-				
-               <xmlfileset dir="${basedir}" includes="testng.xml"/>
-		</testng>
-	</target>
+	 <target name="generateReport">
+	        <delete dir="${basedir}/testng-xslt">
+	        </delete>
+	        <mkdir dir="${basedir}/testng-xslt">
+	        </mkdir>
+	        <xslt in="${basedir}/test-output/testng-results.xml" style="${basedir}/testng-results.xsl" out="${basedir}/testng-xslt/index.html">
+	            <param expression="${basedir}/testng-xslt/" name="testNgXslt.outputDir" />
+	            <param expression="true" name="testNgXslt.sortTestCaseLinks" />
+	            <param expression="FAIL,SKIP,PASS,CONF,BY_CLASS" name="testNgXslt.testDetailsFilter" />
+	            <param expression="true" name="testNgXslt.showRuntimeTotals" />
+	            <classpath refid="master-classpath">
+	            </classpath>
+	        </xslt>
+	    </target>
+   
 </project>

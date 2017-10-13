@@ -23,5 +23,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="var" path="M2_REPO"/>
+	<classpathentry kind="lib" path="H:/Saddahaq/first/lib/saxon-8.7.jar"/>
+	<classpathentry kind="lib" path="H:/Saddahaq/first/lib/SaxonLiaison.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
