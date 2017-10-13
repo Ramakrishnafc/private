@@ -42,6 +42,8 @@
  </build> -->
  
 <!--  --> <build>
+
+
     <plugins>
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
@@ -57,9 +59,7 @@
           <suiteXmlFile>testng.xml</suiteXmlFile>
           </suiteXmlFiles>
           </configuration>
-        </plugin> 
-        
-        
+        </plugin>      
     </plugins>
 </build> 
 
